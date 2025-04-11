@@ -38,8 +38,7 @@ const todos = [
   2. Use an anonymous function as the callback.
   3. Return only the tasks that are not completed.
   */
-  
-  
+    let filterTodos = todos.filter((tasks) => tasks["completed"] == false); 
   /*
   🔹 Task 2: Sort Tasks by Priority
   
@@ -49,7 +48,7 @@ const todos = [
   3. Sort tasks in ascending order of priority (1 = highest).
   */
   
-  
+  let sortTodos = todos.sort((taskA, taskB) => taskA.priority - taskB.priority); 
   /*
   🔹 Task 3: Mark All Tasks as Completed
   
@@ -59,7 +58,7 @@ const todos = [
   3. Change the `completed` property to `true` for every task.
   */
   
-  
+  let mapTodos = todos.map((tasks) => ({...tasks, completed:true})); //Spread syntax to not change original array and keep all test cases https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
   /*
   🔹 Task 4: Combine Filters
   
@@ -69,13 +68,16 @@ const todos = [
   3. Use method chaining to perform both steps together.
   */
   
+  let filteredSortedTodos = todos
+  .filter(tasks => tasks["completed"] == false)
+  .sort((taskA, taskB) => taskA.priority - taskB.priority);
   
   // ============================================
   // 🧪 Console Test Your Work
   // ============================================
   
-  // console.log("Incomplete Tasks:", ...);
-  // console.log("Sorted by Priority:", ...);
-  // console.log("All Tasks Completed:", ...);
-  // console.log("Sorted Incomplete Tasks:", ...);
+  console.log("Incomplete Tasks:", filterTodos);
+  console.log("Sorted by Priority:", sortTodos);
+  console.log("All Tasks Completed:", mapTodos);
+  console.log("Sorted Incomplete Tasks:", filteredSortedTodos);
   
